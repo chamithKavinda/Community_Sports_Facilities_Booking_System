@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "Book Facility";
+}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-7">
+
+            <div class="booking-card">
+
+                <div class="text-center mb-4">
+
+                    <div class="booking-icon mx-auto mb-3">
+                        🏟️
+                    </div>
+
+                    <h2 class="fw-bold">
+                        Book Your Facility
+                    </h2>
+
+                    <p class="text-secondary">
+                        Choose your date and playing time.
+                    </p>
+
+                </div>
+
+                <form asp-controller="Facility"
+                      asp-action="Book"
+                      method="post">
+
+                    <input type="hidden"
+                           name="facilityId"
+                           value="@ViewBag.FacilityID" />
+
+                    <div class="mb-4">
+
+                        <label class="form-label">
+                            Booking Date
+                        </label>
+
+                        <input type="date"
+                               name="bookingDate"
+                               class="form-control"
+                               required />
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label">
+                                Start Time
+                            </label>
+
+                            <input type="time"
+                                   name="startTime"
+                                   class="form-control"
+                                   required />
+
+                        </div>
+
+                        <div class="col-md-6 mb-4">
+
+                            <label class="form-label">
+                                End Time
+                            </label>
+
+                            <input type="time"
+                                   name="endTime"
+                                   class="form-control"
+                                   required />
+
+                        </div>
+
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-sports w-100">
+
+                        Confirm Booking →
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

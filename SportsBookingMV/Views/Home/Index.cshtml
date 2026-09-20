@@ -1,0 +1,212 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    bool isMemberLoggedIn =
+        Context.Session.GetString("MemberName") != null;
+}
+
+<!-- HERO -->
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <div class="hero-badge">
+                    ● COMMUNITY SPORTS PLATFORM
+                </div>
+
+                <h1 class="hero-title">
+                    Find your
+                    <span>game.</span>
+                    <br />
+                    Book your
+                    <span>space.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Discover premium sports facilities around your community.
+                    Book courts, fields and gyms in just a few clicks.
+                </p>
+
+                <div class="d-flex flex-wrap gap-3 mt-4">
+
+                    <a asp-controller="Facility"
+                       asp-action="Search"
+                       class="btn btn-sports">
+
+                        Find a Facility →
+                    </a>
+
+                    @if (!isMemberLoggedIn)
+                    {
+                        <a asp-controller="Account"
+                           asp-action="Register"
+                           class="btn btn-outline-sports">
+
+                            Become a Member
+                        </a>
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SPORTS -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <div class="section-label">
+                PLAY YOUR SPORT
+            </div>
+
+            <h2 class="section-title mt-2">
+                Something for everyone
+            </h2>
+
+            <p class="text-secondary mt-3">
+                Choose your sport and discover facilities near you.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Football -->
+
+            <div class="col-lg-4">
+
+                <div class="sport-card">
+
+                    <div class="sport-icon">
+                        ⚽
+                    </div>
+
+                    <h3>Football</h3>
+
+                    <p>
+                        Full-size outdoor fields for leagues,
+                        training sessions and casual games.
+                    </p>
+
+                    <a asp-controller="Facility"
+                       asp-action="Search"
+                       asp-route-searchType="Football"
+                       class="text-decoration-none fw-bold">
+                        Explore Football →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Tennis -->
+
+            <div class="col-lg-4">
+
+                <div class="sport-card">
+
+                    <div class="sport-icon">
+                        🎾
+                    </div>
+
+                    <h3>Tennis</h3>
+
+                    <p>
+                        Indoor and outdoor courts for casual
+                        matches, training and competitions.
+                    </p>
+
+                    <a asp-controller="Facility"
+                       asp-action="Search"
+                       asp-route-searchType="Tennis"
+                       class="text-decoration-none fw-bold">
+                        Explore Tennis →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Basketball -->
+
+            <div class="col-lg-4">
+
+                <div class="sport-card">
+
+                    <div class="sport-icon">
+                        🏀
+                    </div>
+
+                    <h3>Basketball</h3>
+
+                    <p>
+                        Quality basketball courts available
+                        for community games and training.
+                    </p>
+
+                    <a asp-controller="Facility"
+                       asp-action="Search"
+                       asp-route-searchType="Basketball"
+                       class="text-decoration-none fw-bold">
+                        Explore Basketball →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="section pt-0">
+
+    <div class="container">
+
+        <div class="search-header text-center">
+
+            <div class="section-label text-white-50">
+                READY TO PLAY?
+            </div>
+
+            <h2 class="mt-3">
+                Your next game starts here.
+            </h2>
+
+            <p class="text-white-50">
+                Search for a facility and reserve your time today.
+            </p>
+
+            <a asp-controller="Facility"
+               asp-action="Search"
+               class="btn btn-sports mt-3">
+
+                Browse Facilities →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>

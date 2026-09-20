@@ -1,0 +1,509 @@
+/* =========================================================
+   SPORTSBOOKING - MODERN SPORTS UI
+   ========================================================= */
+
+:root {
+    --navy: #071A2B;
+    --navy-light: #0D263B;
+    --lime: #D7FF3F;
+    --lime-dark: #B8E600;
+    --violet: #7957FF;
+    --orange: #FF7043;
+    --cream: #F7F8F2;
+    --muted: #8C98A5;
+    --white: #FFFFFF;
+    --border: rgba(255, 255, 255, 0.10);
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-weight: 800;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+h3 {
+    font-weight: 700;
+}
+
+h4,
+h5,
+h6 {
+    font-weight: 600;
+}
+
+button,
+.btn {
+    font-weight: 600;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.sports-navbar {
+    background: var(--navy);
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.brand-logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.brand-dot {
+    color: var(--lime);
+}
+
+.sports-navbar .nav-link {
+    color: rgba(255,255,255,0.70) !important;
+    font-weight: 500;
+    margin: 0 7px;
+    transition: 0.25s ease;
+}
+
+    .sports-navbar .nav-link:hover {
+        color: var(--lime) !important;
+    }
+
+.nav-login {
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 9px 17px !important;
+}
+
+.nav-register {
+    background: var(--lime);
+    color: var(--navy) !important;
+    border-radius: 12px;
+    padding: 9px 18px !important;
+    font-weight: 700 !important;
+}
+
+    .nav-register:hover {
+        background: white;
+        color: var(--navy) !important;
+    }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at 80% 20%, rgba(121,87,255,0.35), transparent 30%), radial-gradient(circle at 20% 80%, rgba(215,255,63,0.18), transparent 30%), var(--navy);
+    border-radius: 0 0 40px 40px;
+    padding: 100px 0 120px;
+    color: white;
+}
+
+    .hero-section::after {
+        content: "";
+        position: absolute;
+        width: 450px;
+        height: 450px;
+        border: 1px solid rgba(215,255,63,0.15);
+        border-radius: 50%;
+        right: -150px;
+        top: -180px;
+    }
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(215,255,63,0.10);
+    border: 1px solid rgba(215,255,63,0.25);
+    color: var(--lime);
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.05;
+}
+
+    .hero-title span {
+        color: var(--lime);
+    }
+
+.hero-description {
+    max-width: 650px;
+    color: rgba(255,255,255,0.68);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn-sports {
+    background: var(--lime);
+    color: var(--navy);
+    border: none;
+    border-radius: 14px;
+    padding: 13px 23px;
+    font-weight: 800;
+    transition: 0.25s ease;
+}
+
+    .btn-sports:hover {
+        background: white;
+        color: var(--navy);
+        transform: translateY(-2px);
+    }
+
+.btn-outline-sports {
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    border-radius: 14px;
+    padding: 13px 23px;
+    font-weight: 700;
+}
+
+    .btn-outline-sports:hover {
+        background: white;
+        color: var(--navy);
+    }
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.section {
+    padding: 90px 0;
+}
+
+.section-label {
+    color: var(--violet);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.section-title {
+    font-size: 2.6rem;
+    font-weight: 850;
+    letter-spacing: -1.5px;
+}
+
+/* =========================================================
+   SPORT CARDS
+   ========================================================= */
+
+.sport-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 270px;
+    padding: 30px;
+    border-radius: 25px;
+    background: white;
+    border: 1px solid #e9ecef;
+    transition: 0.3s ease;
+}
+
+    .sport-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow);
+    }
+
+.sport-icon {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 2rem;
+    background: #f2f5e5;
+    margin-bottom: 25px;
+}
+
+.sport-card h3 {
+    font-weight: 800;
+}
+
+.sport-card p {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+/* =========================================================
+   FACILITY SEARCH
+   ========================================================= */
+
+.search-header {
+    background: var(--navy);
+    color: white;
+    border-radius: 30px;
+    padding: 45px;
+    margin-bottom: 35px;
+}
+
+    .search-header h1 {
+        font-weight: 850;
+        letter-spacing: -1px;
+    }
+
+.search-box {
+    background: white;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+    .search-box input {
+        border: none;
+        box-shadow: none !important;
+        padding: 14px;
+    }
+
+    .search-box button {
+        border-radius: 14px;
+        padding: 12px 25px;
+    }
+
+/* =========================================================
+   FACILITY CARDS
+   ========================================================= */
+
+.facility-card {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 25px;
+    overflow: hidden;
+    height: 100%;
+    transition: 0.3s ease;
+}
+
+    .facility-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow);
+    }
+
+.facility-image {
+    height: 180px;
+    background: linear-gradient(135deg, #101f31, #243f55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.facility-content {
+    padding: 25px;
+}
+
+.facility-type {
+    display: inline-block;
+    background: rgba(121,87,255,0.10);
+    color: var(--violet);
+    border-radius: 50px;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.facility-name {
+    font-size: 1.35rem;
+    font-weight: 800;
+    margin-top: 15px;
+}
+
+.facility-location {
+    color: var(--muted);
+}
+
+.facility-price {
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 1.15rem;
+}
+
+    .facility-price span {
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+
+.auth-wrapper {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 15px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 470px;
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+    border: 1px solid #e9ecef;
+}
+
+    .auth-card h2 {
+        font-weight: 850;
+        letter-spacing: -1px;
+    }
+
+.form-label {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.form-control {
+    border-radius: 13px;
+    padding: 13px 15px;
+    border: 1px solid #dfe3e7;
+}
+
+    .form-control:focus {
+        border-color: var(--violet);
+        box-shadow: 0 0 0 4px rgba(121,87,255,0.10);
+    }
+
+/* =========================================================
+   BOOKING
+   ========================================================= */
+
+.booking-card {
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+}
+
+.booking-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 24px;
+    background: var(--navy);
+    color: var(--lime);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+/* =========================================================
+   REVIEW
+   ========================================================= */
+
+.review-card {
+    background: white;
+    border-radius: 22px;
+    padding: 25px;
+    border: 1px solid #e9ecef;
+    margin-bottom: 15px;
+}
+
+.rating {
+    color: #ffad0a;
+    font-size: 1.1rem;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.sports-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.65);
+    padding: 50px 0;
+    margin-top: 80px;
+}
+
+    .sports-footer h5 {
+        color: white;
+        font-weight: 800;
+    }
+
+.footer-brand {
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+    .footer-brand span {
+        color: var(--lime);
+    }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero-section {
+        padding: 70px 20px 90px;
+        border-radius: 0 0 25px 25px;
+    }
+
+    .hero-title {
+        font-size: 3.2rem;
+        letter-spacing: -2px;
+    }
+
+    .section {
+        padding: 60px 15px;
+    }
+
+    .search-header {
+        padding: 30px 20px;
+    }
+
+    .search-box {
+        display: block;
+        background: transparent;
+        padding: 0;
+    }
+
+        .search-box input,
+        .search-box button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+    .auth-card {
+        padding: 30px 22px;
+    }
+}

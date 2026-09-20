@@ -1,0 +1,208 @@
+﻿@model IEnumerable<SportsBookingMVC.Models.FacilityModel>
+
+@{
+    ViewData["Title"] = "Find Facilities";
+
+    bool isMemberLoggedIn =
+        Context.Session.GetInt32("MemberID") != null;
+}
+
+<div class="container py-5">
+
+    <!-- SEARCH HEADER -->
+
+    <div class="search-header">
+
+        <div class="section-label text-white-50">
+            SPORTS FACILITIES
+        </div>
+
+        <h1 class="mt-2">
+            Find your playing space.
+        </h1>
+
+        <p class="text-white-50">
+            Search courts, fields and gyms around your community.
+        </p>
+
+        <form method="get"
+              asp-action="Search"
+              class="search-box">
+
+            <input type="text"
+                   name="searchType"
+                   class="form-control"
+                   placeholder="Sport type e.g. Tennis" />
+
+            <input type="text"
+                   name="location"
+                   class="form-control"
+                   placeholder="Location" />
+
+            <button type="submit"
+                    class="btn btn-sports">
+
+                Search
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- RESULTS -->
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+
+            <h2 class="fw-bold mb-1">
+                Available Facilities
+            </h2>
+
+            <p class="text-secondary mb-0">
+                Discover your next place to play.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="row g-4">
+
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="facility-card">
+
+                        <div class="facility-image">
+
+                            @if (item.FacilityType != null &&
+                                 item.FacilityType.ToLower().Contains("tennis"))
+                            {
+                                <span>🎾</span>
+                            }
+                            else if (item.FacilityType != null &&
+                                     item.FacilityType.ToLower().Contains("football"))
+                            {
+                                <span>⚽</span>
+                            }
+                            else if (item.FacilityType != null &&
+                                     item.FacilityType.ToLower().Contains("basketball"))
+                            {
+                                <span>🏀</span>
+                            }
+                            else
+                            {
+                                <span>🏟️</span>
+                            }
+
+                        </div>
+
+                        <div class="facility-content">
+
+                            <span class="facility-type">
+                                @item.FacilityType
+                            </span>
+
+                            <h3 class="facility-name">
+                                @item.FacilityName
+                            </h3>
+
+                            <div class="facility-location mb-3">
+                                📍 @item.Location
+                            </div>
+
+                            <p class="text-secondary small">
+                                @item.Description
+                            </p>
+
+                            @if (isMemberLoggedIn)
+                            {
+                                <div class="d-flex justify-content-between align-items-center mt-4">
+
+                                    <div class="facility-price">
+
+                                        @item.HourlyRate.ToString("0.00")
+
+                                        <span>
+                                            / hour
+                                        </span>
+
+                                    </div>
+
+                                    <div class="d-flex gap-2">
+
+                                        <a asp-action="Reviews"
+                                           asp-route-facilityId="@item.FacilityID"
+                                           class="btn btn-outline-secondary btn-sm">
+
+                                            Reviews
+
+                                        </a>
+
+                                        <a asp-action="Book"
+                                           asp-route-id="@item.FacilityID"
+                                           class="btn btn-sports btn-sm">
+
+                                            Book →
+
+                                        </a>
+
+                                    </div>
+
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="mt-4">
+
+                                    <a asp-controller="Account"
+                                       asp-action="Login"
+                                       class="btn btn-sports w-100">
+
+                                        Sign in to Book
+
+                                    </a>
+
+                                </div>
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+
+                <div class="text-center py-5">
+
+                    <div style="font-size: 4rem;">
+                        🔎
+                    </div>
+
+                    <h3 class="fw-bold mt-3">
+                        No facilities found
+                    </h3>
+
+                    <p class="text-secondary">
+                        Try changing your sport or location.
+                    </p>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>

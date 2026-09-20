@@ -1,0 +1,143 @@
+﻿@{
+    ViewData["Title"] = "Facility Reviews";
+
+    bool isMemberLoggedIn =
+        Context.Session.GetInt32("MemberID") != null;
+}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <div class="mb-5">
+
+                <div class="section-label">
+                    COMMUNITY FEEDBACK
+                </div>
+
+                <h1 class="section-title mt-2">
+                    Facility Reviews
+                </h1>
+
+                <p class="text-secondary">
+                    See what other players think about this facility.
+                </p>
+
+            </div>
+
+
+            <!-- EXISTING REVIEWS -->
+
+            <div class="review-card">
+
+                <div class="d-flex justify-content-between">
+
+                    <strong>
+                        Community Member
+                    </strong>
+
+                    <span class="rating">
+                        ★★★★★
+                    </span>
+
+                </div>
+
+                <p class="text-secondary mt-3 mb-0">
+                    Existing reviews will appear here.
+                </p>
+
+            </div>
+
+
+            @if (isMemberLoggedIn)
+            {
+                <div class="booking-card mt-5">
+
+                    <h3 class="fw-bold">
+                        Share your experience
+                    </h3>
+
+                    <p class="text-secondary">
+                        Your review helps other players make better decisions.
+                    </p>
+
+                    <form asp-controller="Facility"
+                          asp-action="AddReview"
+                          method="post"
+                          class="mt-4">
+
+                        <input type="hidden"
+                               name="facilityId"
+                               value="@ViewBag.FacilityID" />
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Rating
+                            </label>
+
+                            <input type="number"
+                                   name="rating"
+                                   class="form-control"
+                                   min="1"
+                                   max="5"
+                                   placeholder="1 - 5"
+                                   required />
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <label class="form-label">
+                                Your Review
+                            </label>
+
+                            <textarea name="comments"
+                                      class="form-control"
+                                      rows="5"
+                                      placeholder="Tell us about your experience..."
+                                      required></textarea>
+
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-sports">
+
+                            Submit Review →
+
+                        </button>
+
+                    </form>
+
+                </div>
+            }
+            else
+            {
+                <div class="search-header text-center mt-5">
+
+                    <h3>
+                        Want to leave a review?
+                    </h3>
+
+                    <p class="text-white-50">
+                        Sign in as a member to share your experience.
+                    </p>
+
+                    <a asp-controller="Account"
+                       asp-action="Login"
+                       class="btn btn-sports mt-2">
+
+                        Sign In
+
+                    </a>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</div>

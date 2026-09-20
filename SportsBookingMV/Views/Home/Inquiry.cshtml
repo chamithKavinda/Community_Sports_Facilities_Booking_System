@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-7">
+
+            <div class="booking-card">
+
+                <div class="text-center mb-4">
+
+                    <div class="booking-icon mx-auto mb-3">
+                        💬
+                    </div>
+
+                    <h2 class="fw-bold">
+                        How can we help?
+                    </h2>
+
+                    <p class="text-secondary">
+                        Have a question about memberships,
+                        facilities or bookings?
+                    </p>
+
+                </div>
+
+                <form asp-controller="Home"
+                      asp-action="SendInquiry"
+                      method="post">
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Your Name
+                        </label>
+
+                        <input type="text"
+                               name="guestName"
+                               class="form-control"
+                               placeholder="Your name"
+                               required />
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Email Address
+                        </label>
+
+                        <input type="email"
+                               name="guestEmail"
+                               class="form-control"
+                               placeholder="you@example.com"
+                               required />
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label class="form-label">
+                            Message
+                        </label>
+
+                        <textarea name="message"
+                                  class="form-control"
+                                  rows="6"
+                                  placeholder="How can we help?"
+                                  required></textarea>
+
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-sports w-100">
+
+                        Send Inquiry →
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

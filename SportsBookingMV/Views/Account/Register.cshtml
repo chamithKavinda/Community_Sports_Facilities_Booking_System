@@ -1,0 +1,135 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="auth-wrapper">
+
+    <div class="auth-card" style="max-width: 600px;">
+
+        <div class="text-center mb-4">
+
+            <div class="booking-icon mx-auto mb-3">
+                🚀
+            </div>
+
+            <h2>Join SportsBooking</h2>
+
+            <p class="text-secondary">
+                Create your free member account and start playing.
+            </p>
+
+        </div>
+
+        <form asp-controller="Account"
+              asp-action="Register"
+              method="post">
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Full Name
+                </label>
+
+                <input type="text"
+                       name="fullName"
+                       class="form-control"
+                       placeholder="Your full name"
+                       required />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Email Address
+                </label>
+
+                <input type="email"
+                       name="email"
+                       class="form-control"
+                       placeholder="you@example.com"
+                       required />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Password
+                </label>
+
+                <input type="password"
+                       name="password"
+                       class="form-control"
+                       placeholder="Create a secure password"
+                       required />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Contact Number
+                </label>
+
+                <input type="text"
+                       name="contact"
+                       class="form-control"
+                       placeholder="+94 XX XXX XXXX" />
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Address
+                </label>
+
+                <input type="text"
+                       name="address"
+                       class="form-control"
+                       placeholder="Your address" />
+
+            </div>
+
+            <div class="mb-4">
+
+                <label class="form-label">
+                    Preferred Sports
+                </label>
+
+                <input type="text"
+                       name="sports"
+                       class="form-control"
+                       placeholder="Tennis, Football, Basketball..." />
+
+            </div>
+
+            <button type="submit"
+                    class="btn btn-sports w-100">
+
+                Create Account →
+
+            </button>
+
+        </form>
+
+        <div class="text-center mt-4">
+
+            <span class="text-secondary">
+                Already a member?
+            </span>
+
+            <a asp-controller="Account"
+               asp-action="Login"
+               class="fw-bold text-decoration-none">
+
+                Sign in
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
